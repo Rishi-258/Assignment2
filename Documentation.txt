@@ -1,0 +1,22 @@
+*Contribution*
+Parv Jain:- Add to history , show history , Execute pipes , Exit (Ctrl+c) , shell loop
+
+Rishi Sharma:-Shell loop,read function,lauching,exceuting functions without pipe ,info of related to exit
+
+
+** Implementation**
+>Shellloop() takes user command ,stores them to history, execute them and repeat until exit
+>reading the input into cmd 
+>lauching the command by converting command into tokens
+>Creating process and running it using fork
+> History is 2D array saving each command
+> If history is full it will drop oldest command
+> Pipe function will do command count,if there is one command directly send to execution otherwise call execute pipe
+> execute pipes() function creates a chain of pipes, forks one process per command, connects each child’s stdin/stdout to the correct pipe ends using dup2(), closes unused file descriptors, and waits for all children so data flows from the first command through the last
+> ctrlc() exits on giving command Ctrl+c
+
+
+Limitations
+>arrow keys can't be used to view previous cmds 
+>Signals other than ctrlc are not there like ctrlz etc 
+>cannot use cd to change into directories
